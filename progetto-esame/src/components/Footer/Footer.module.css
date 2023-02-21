@@ -1,0 +1,10 @@
+.footer {
+    background-color: blue;
+    padding: 20px;
+}
+.footerImage {
+    max-height: 100px;
+}
+.red {
+    background-color: crimson;
+}
