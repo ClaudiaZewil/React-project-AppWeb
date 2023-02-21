@@ -1,0 +1,9 @@
+.navItem a.active {
+    color: #f90931 !important;
+}
+.navItem a:hover {
+    color: #ff4c60;
+}
+.headerImage {
+    max-height: 50px;
+}
