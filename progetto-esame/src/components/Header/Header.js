@@ -24,8 +24,8 @@ function Header(props) {
                         <NavItem key="/">
                             <RouterLink exact="true" to="/" activeClassName={style.active} className="nav-link me-2">Home</RouterLink>
                         </NavItem>
-                        <NavItem key="/songlist">
-                            <RouterLink exact="true" to="/songlist" activeClassName={style.active} className="nav-link me-2">Song List</RouterLink>
+                        <NavItem key="/songList">
+                            <RouterLink exact="true" to="/songList" activeClassName={style.active} className="nav-link me-2">Song List</RouterLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

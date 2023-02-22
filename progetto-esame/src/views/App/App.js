@@ -12,8 +12,8 @@ function App() {
           <MainTemplate>
               <Routes>
                   <Route path={"/"} element={<Home />}/>
-                  <Route path={"/songlist"} element={<SongList />}/>
-                  <Route path={"/:song"} element={<SongDetails />}/>
+                  <Route path={"/songList"} element={<SongList />}/>
+                  <Route path={"/:songNumber"} element={<SongDetails />}/>
               </Routes>
           </MainTemplate>
       </BrowserRouter>
