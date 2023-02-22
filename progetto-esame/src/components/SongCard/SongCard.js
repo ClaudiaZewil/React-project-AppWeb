@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 
 function SongCard(props) {
     const {songNumber, songName, songArtist, songDate} = props;
-    const [songImageData, setSongImageData] = useState([]);
+    const [songData, setSongData] = useState([]);
 
     useEffect(() => {
         let isMounted = true;
@@ -21,7 +21,8 @@ function SongCard(props) {
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
-                    setSongImageData(res);
+                    setSongData(res);
+                console.log(songData);
             })
             .catch((error) => console.log("Error" + error));
         return () => {
@@ -33,12 +34,11 @@ function SongCard(props) {
          <NavLink to={`/${songNumber}`}>
              <Card>
                  <CardHeader>#{songNumber}</CardHeader>
-                 <CardImg src={songImageData.track.album.image[3].text} alt={songName} loading="lazy"  top
-                          width="100%" />
+                 <CardImg></CardImg>
                  <CardBody>
                      <CardTitle>{songName}</CardTitle>
                      <CardSubtitle>{songArtist}</CardSubtitle>
-                     <CardText>{songDate}</CardText>
+                    <CardText></CardText>
                  </CardBody>
              </Card>
          </NavLink>

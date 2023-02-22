@@ -11,8 +11,6 @@ function SongCardGrid(props) {
                     songNumber={song.position}
                     songName={song.songTitle}
                     songArtist={song.artistTitle}
-                    //songImage={songImageData}
-                    //songDate={songDate}
                 />
             </div>
         )

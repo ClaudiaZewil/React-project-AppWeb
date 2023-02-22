@@ -30,15 +30,9 @@ function SongList() {
                         displayGrid ?
                             <SongCardGrid
                                 songList={SongListData}
-                                //songImage={}
-                                //songDate={}
                                 col={{xs:1, sm:2, md:3, lg:4, xl:5}}
                             /> :
-                            <SongTable
-                                songList={SongListData}
-                                //songImage={}
-                                //songDate={}
-                                />
+                            <SongTable songList={SongListData} />
                     }
                 </div>
             </div>
