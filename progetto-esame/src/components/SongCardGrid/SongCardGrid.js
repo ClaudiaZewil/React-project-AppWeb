@@ -2,7 +2,8 @@ import React from "react";
 import SongCard from "../SongCard/SongCard";
 
 function SongCardGrid(props) {
-    const {songList, songImage, songDate, col} = props;
+    const {songList, col} = props;
+
     const songCardsCol = songList.map((song) => {
         return (
             <div key={song.position} className="col">
@@ -10,8 +11,8 @@ function SongCardGrid(props) {
                     songNumber={song.position}
                     songName={song.songTitle}
                     songArtist={song.artistTitle}
-                    songImage={songImage}
-                    songDate={songDate}
+                    //songImage={songImageData}
+                    //songDate={songDate}
                 />
             </div>
         )

@@ -7,15 +7,13 @@ function SongTable(props) {
     const songTr = songList.map((song) => {
         return (
             <tr key={song.id}>
-                <NavLink to={`/${song.position}`}>
                     <td>{song.position}</td>
                     <td>
                         <img src={songImage} alt={song.songTitle} loading="lazy" />
                     </td>
-                    <td>{song.songTitle}</td>
+                    <td><NavLink to={`/${song.position}`}>{song.songTitle}</NavLink></td>
                     <td>{song.artistTitle}</td>
                     <td>{songDate}</td>
-                </NavLink>
             </tr>
         )
     });

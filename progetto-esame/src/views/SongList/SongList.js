@@ -7,6 +7,7 @@ import style from "./SongList.module.css";
 
 function SongList() {
     const [displayGrid, setDisplayGrid] = useState("true");
+
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -29,9 +30,15 @@ function SongList() {
                         displayGrid ?
                             <SongCardGrid
                                 songList={SongListData}
+                                //songImage={}
+                                //songDate={}
                                 col={{xs:1, sm:2, md:3, lg:4, xl:5}}
                             /> :
-                            <SongTable songList={SongListData}/>
+                            <SongTable
+                                songList={SongListData}
+                                //songImage={}
+                                //songDate={}
+                                />
                     }
                 </div>
             </div>
