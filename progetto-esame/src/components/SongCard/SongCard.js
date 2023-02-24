@@ -45,7 +45,8 @@ function SongCard(props) {
                      <div>
                          {
                              songData.data ?
-                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]}>
+                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top
+                                          width="100%">
                                  </CardImg>
                                  :
                                  <CardImg src={songDefaultImage}>
