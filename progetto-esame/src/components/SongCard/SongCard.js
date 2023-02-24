@@ -3,6 +3,7 @@ import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle, CardHeader} 
 import style from "./SongCard.module.css";
 import {NavLink} from "react-router-dom";
 import songDefaultImage from "../../assets/images/RollingStoneLogoSmall.png";
+import songDefaultImageBW from "../../assets/images/RollingStoneLogoSmallBW.png";
 import songLoadingImage from "../../assets/images/loading.png";
 
 function SongCard(props) {
@@ -44,31 +45,26 @@ function SongCard(props) {
                  {songData.length !== 0 ?
                      <div>
                          {
-                             songData.data ?
-                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top
-                                          width="100%">
-                                 </CardImg>
+                             songData.error ?
+                                 <CardImg src={songDefaultImage}> </CardImg>
                                  :
-                                 <CardImg src={songDefaultImage}>
-                                 </CardImg>
+                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"> </CardImg>
                          }
                      </div>
                      :
                      <div>
                          {
                              apiError === false ?
-                                 <CardImg src={songLoadingImage}>
-                                 </CardImg>
+                                 <CardImg src={songLoadingImage}> </CardImg>
                                  :
-                                 <CardImg src={songDefaultImage}>
-                                 </CardImg>
+                                 <CardImg src={songDefaultImageBW}> </CardImg>
                          }
                      </div>
                  }
                  <CardBody>
                      <CardTitle>{songName}</CardTitle>
                      <CardSubtitle>{songArtist}</CardSubtitle>
-                     <CardText></CardText>
+                     <CardText> </CardText>
                  </CardBody>
              </Card>
          </NavLink>
