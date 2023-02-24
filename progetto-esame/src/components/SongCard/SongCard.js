@@ -38,7 +38,7 @@ function SongCard(props) {
     }, []);
 
      return (
-         <NavLink to={`/${songNumber}`}>
+         <NavLink to={`/songList/${songNumber}`}>
              <Card>
                  <CardHeader>#{songNumber}</CardHeader>
                  {songData.length !== 0 ?

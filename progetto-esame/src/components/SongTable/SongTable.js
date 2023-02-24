@@ -11,7 +11,7 @@ function SongTable(props) {
                 <td>
                     <img src={songImage} alt={song.songTitle} loading="lazy" />
                 </td>
-                <td><NavLink to={`/${song.position}`}>{song.songTitle}</NavLink></td>
+                <td><NavLink to={`/songList/${song.position}`}>{song.songTitle}</NavLink></td>
                 <td>{song.artistTitle}</td>
                 <td>{songDate}</td>
             </tr>
