@@ -2,11 +2,14 @@ import React, {useState, useEffect} from "react";
 import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle, CardHeader} from "reactstrap";
 import style from "./SongCard.module.css";
 import {NavLink} from "react-router-dom";
+import songDefaultImage from "../../assets/images/RollingStoneLogoSmall.png";
+import songLoadingImage from "../../assets/images/loading.png";
 
 function SongCard(props) {
     const {songNumber, songName, songArtist, songDate} = props;
+    //chiamata API
     const [songData, setSongData] = useState([]);
-
+    const [apiError, setApiError] = useState(false);
     useEffect(() => {
         let isMounted = true;
         let songArtistData = songName;
@@ -17,14 +20,18 @@ function SongCard(props) {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=361bb0d6ecbc8a3710b9d8a467354834&artist=${songArtistData}&track=${songNameData}&format=json`)
+        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}`)
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
                     setSongData(res);
-                console.log(songData);
+                console.log(res);
             })
-            .catch((error) => console.log("Error" + error));
+            .catch((error) => {
+                console.log("Error" + error)
+                setApiError(true);
+            });
+
         return () => {
             isMounted = false;
         }
@@ -34,11 +41,33 @@ function SongCard(props) {
          <NavLink to={`/${songNumber}`}>
              <Card>
                  <CardHeader>#{songNumber}</CardHeader>
-                 <CardImg></CardImg>
+                 {songData.length !== 0 ?
+                     <div>
+                         {
+                             songData.data ?
+                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]}>
+                                 </CardImg>
+                                 :
+                                 <CardImg src={songDefaultImage}>
+                                 </CardImg>
+                         }
+                     </div>
+                     :
+                     <div>
+                         {
+                             apiError === false ?
+                                 <CardImg src={songLoadingImage}>
+                                 </CardImg>
+                                 :
+                                 <CardImg src={songDefaultImage}>
+                                 </CardImg>
+                         }
+                     </div>
+                 }
                  <CardBody>
                      <CardTitle>{songName}</CardTitle>
                      <CardSubtitle>{songArtist}</CardSubtitle>
-                    <CardText></CardText>
+                     <CardText></CardText>
                  </CardBody>
              </Card>
          </NavLink>

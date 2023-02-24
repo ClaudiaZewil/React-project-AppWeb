@@ -2,18 +2,18 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 function SongTable(props) {
-    const {songList, songImage, songDate} = props;
-
+    const {songList, songDate, songImage} = props;
+    //costruzione righe tabella
     const songTr = songList.map((song) => {
         return (
             <tr key={song.id}>
-                    <td>{song.position}</td>
-                    <td>
-                        <img src={songImage} alt={song.songTitle} loading="lazy" />
-                    </td>
-                    <td><NavLink to={`/${song.position}`}>{song.songTitle}</NavLink></td>
-                    <td>{song.artistTitle}</td>
-                    <td>{songDate}</td>
+                <td>{song.position}</td>
+                <td>
+                    <img src={songImage} alt={song.songTitle} loading="lazy" />
+                </td>
+                <td><NavLink to={`/${song.position}`}>{song.songTitle}</NavLink></td>
+                <td>{song.artistTitle}</td>
+                <td>{songDate}</td>
             </tr>
         )
     });
