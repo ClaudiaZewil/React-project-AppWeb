@@ -46,18 +46,18 @@ function SongCard(props) {
                      <div>
                          {
                              songData.error ?
-                                 <CardImg src={songDefaultImage}> </CardImg>
+                                 <CardImg src={songDefaultImage}></CardImg>
                                  :
-                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"> </CardImg>
+                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"></CardImg>
                          }
                      </div>
                      :
                      <div>
                          {
                              apiError === false ?
-                                 <CardImg src={songLoadingImage}> </CardImg>
+                                 <CardImg src={songLoadingImage}></CardImg>
                                  :
-                                 <CardImg src={songDefaultImageBW}> </CardImg>
+                                 <CardImg src={songDefaultImageBW}></CardImg>
                          }
                      </div>
                  }
