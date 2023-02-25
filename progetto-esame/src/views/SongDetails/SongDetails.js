@@ -2,9 +2,10 @@ import React, {useEffect, useState} from "react";
 import SongListData from "../../assets/data/RollingStoneTop500Song.json";
 import {NavLink, useParams} from "react-router-dom";
 import SongCard from "../../components/SongCard/SongCard";
-import songDefaultImage from "../../assets/images/RollingStoneLogoSmall.png";
+import songDefaultImage from "../../assets/images/crowd.jpeg";
 import style from "../../components/SongTableTr/SongTableTr.module.css";
 import songLoadingImage from "../../assets/images/loading.png";
+import style2 from "./SongDetails.module.css";
 
 function SongDetails() {
     let {number} = useParams();
@@ -55,24 +56,24 @@ function SongDetails() {
     }, []);
 
     return(
-        <div className="container">
-            <div className="row">
-                <div className="col">
-                    <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
+        <div className="container pt-5">
+            <div className="row pt-5">
+                <div className="col d-flex align-items-center">
+                    <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt=""
+                         className={`img-fluid ${style2.artistImage}`} />
                     <audio controls>
                         <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
-                        Your browser does not support the audio element.
                     </audio>
                 </div>
                 <div className="col">
                     <SongCard
-                    songNumber={songCurrent["0"]["position"]}
-                    songName={songCurrent["0"]["songTitle"]}
-                    songArtist={songCurrent["0"]["artistTitle"]}
+                        songNumber={songCurrent["0"]["position"]}
+                        songName={songCurrent["0"]["songTitle"]}
+                        songArtist={songCurrent["0"]["artistTitle"]}
                     >
                     </SongCard>
                 </div>
-                <div className="col">
+                <div className="col d-flex align-items-center flex-column">
                     <div>
                         <h2>{songCurrent["0"]["artistTitle"]}</h2>
                         <p>

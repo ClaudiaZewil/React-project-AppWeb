@@ -40,7 +40,7 @@ function SongCard(props) {
 
      return (
          <NavLink to={`/songList/${songNumber}`}>
-             <Card className={style.card}>
+             <Card className={`mb-3 ${style.card}`}>
                  {songData.length !== 0 ?
                      <div>
                          {

@@ -10,7 +10,7 @@ function SongList() {
 
     return (
         <div className="container">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center pt-5">
                 <div className="col">
                     <div className={style.switch}>
                         <div className={clsx(style.option, {[style.active]: displayGrid})}

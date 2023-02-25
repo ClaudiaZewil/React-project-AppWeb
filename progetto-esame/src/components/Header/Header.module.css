@@ -1,8 +1,6 @@
-.navItem a.active {
-    color: #f90931 !important;
-}
-.navItem a:hover {
-    color: #ff4c60;
+.navItem:hover {
+    color: red;
+    text-shadow: 0.1px .1px .5px #5e4c49;
 }
 .headerImage {
     max-height: 50px;
