@@ -2,3 +2,14 @@
     height:70px;
     width: 70px;
 }
+.imgTr:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
+}
+.songNumber {
+    font-size: 70px;
+    color: red;
+    opacity: 60%;
+}
+.link:hover {
+    text-shadow: 0.1px .1px .5px #5e4c49;
+}

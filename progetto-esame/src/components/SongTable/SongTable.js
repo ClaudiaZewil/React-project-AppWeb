@@ -19,11 +19,10 @@ function SongTable(props) {
         <table className="table">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Cover</th>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Date</th>
+                <th><h4>Position</h4></th>
+                <th><h4>Cover</h4></th>
+                <th><h4>Song</h4></th>
+                <th><h4>Artist</h4></th>
             </tr>
             </thead>
             <tbody>

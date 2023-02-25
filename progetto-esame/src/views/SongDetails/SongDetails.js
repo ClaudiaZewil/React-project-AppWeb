@@ -58,32 +58,11 @@ function SongDetails() {
         <div className="container">
             <div className="row">
                 <div className="col">
-                    {songData.length !== 0 ?
-                        <div>
-                            {
-                                songData.error ?
-                                    <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
-                                    :
-                                    <div>
-                                        <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
-                                        <audio controls>
-                                            <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                    </div>
-                            }
-                        </div>
-                        :
-                        <div>
-                            {
-                                apiError === false ?
-                                    <img src={songLoadingImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
-                                    :
-                                    <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
-                            }
-                        </div>
-                    }
-
+                    <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
+                    <audio controls>
+                        <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
                 <div className="col">
                     <SongCard

@@ -40,13 +40,12 @@ function SongCard(props) {
 
      return (
          <NavLink to={`/songList/${songNumber}`}>
-             <Card>
-                 <CardHeader>#{songNumber}</CardHeader>
+             <Card className={style.card}>
                  {songData.length !== 0 ?
                      <div>
                          {
                              songData.error ?
-                                 <CardImg src={songDefaultImage}></CardImg>
+                                 <CardImg src={songDefaultImageBW}></CardImg>
                                  :
                                  <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"></CardImg>
                          }
@@ -57,14 +56,14 @@ function SongCard(props) {
                              apiError === false ?
                                  <CardImg src={songLoadingImage}></CardImg>
                                  :
-                                 <CardImg src={songDefaultImageBW}></CardImg>
+                                 <CardImg src={songDefaultImage}></CardImg>
                          }
                      </div>
                  }
-                 <CardBody>
+                 <CardBody className="mb-3">
+                     <CardText tag="h3" className={`${style.songNumber}`}>{songNumber}</CardText>
                      <CardTitle>{songName}</CardTitle>
                      <CardSubtitle>{songArtist}</CardSubtitle>
-                     <CardText> </CardText>
                  </CardBody>
              </Card>
          </NavLink>

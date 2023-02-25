@@ -5,7 +5,7 @@ import unimib from "../../assets/images/unimib.jpg";
 function Footer(props) {
     const {logoImg} = props;
     return(
-        <footer className="row p-5 d-flex justify-content-between align-items-center">
+        <footer className={`row p-5 d-flex justify-content-between align-items-center ${style.footer}`}>
             <div className="col-6">
                 <img src={logoImg} alt="Rolling Stones logo image" className={`img-fluid ${style.footerImage}`}/>
                 <h3>500 Greatest Songs of All time</h3>

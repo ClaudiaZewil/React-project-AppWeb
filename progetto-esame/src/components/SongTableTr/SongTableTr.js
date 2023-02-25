@@ -5,7 +5,7 @@ import songLoadingImage from "../../assets/images/loading.png";
 import style from "./SongTableTr.module.css";
 
 function SongTableTr(props) {
-    const {songNumber, songName, songArtist, songDate, songImage} = props;
+    const {songNumber, songName, songArtist} = props;
     //chiamata API
     const [songData, setSongData] = useState([]);
     const [apiError, setApiError] = useState(false);
@@ -37,7 +37,7 @@ function SongTableTr(props) {
     }, []);
     return (
         <tr key={songNumber}>
-            <td>{songNumber}</td>
+            <td><h3 className={style.songNumber}>{songNumber}</h3></td>
             <td>
                 {songData.length !== 0 ?
                     <div>
@@ -67,9 +67,10 @@ function SongTableTr(props) {
                     </div>
                 }
             </td>
-            <td><NavLink to={`/songList/${songNumber}`}>{songName}</NavLink></td>
-            <td>{songArtist}</td>
-            <td>{songDate}</td>
+            <td><NavLink to={`/songList/${songNumber}`}>
+                <p className={`mt-4 text-danger ${style.link}`}>{songName}</p>
+            </NavLink></td>
+            <td><p className="mt-4">{songArtist}</p></td>
         </tr>
     )
 }

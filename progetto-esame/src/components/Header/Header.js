@@ -8,7 +8,7 @@ function Header(props) {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     return(
-        <Navbar expand="md" light className="row p-3 d-flex justify-content-between align-items-center">
+        <Navbar expand="md" light className={`row p-5 d-flex justify-content-between align-items-center fixed-top ${style.header}`} >
             <div className="col-3">
                 <RouterLink to="/">
                     <img src={logoImg} alt="" className={`img-fluid ${style.headerImg}`}/>
