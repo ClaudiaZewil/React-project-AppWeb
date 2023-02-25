@@ -53,7 +53,7 @@ function SongDetails() {
         return () => {
             isMounted = false;
         }
-    }, []);
+    }, [songNumber]);
 
     return(
         <div className="container pt-5">
@@ -74,7 +74,7 @@ function SongDetails() {
                     >
                     </SongCard>
                 </div>
-                <div className="col d-flex align-items-center flex-column">
+                <div className="col">
                     <div>
                         <h2>{songCurrent["0"]["artistTitle"]}</h2>
                         <p>
@@ -93,13 +93,13 @@ function SongDetails() {
                         </p>
                     </div>
                     <div className={style.navigation}>
-                        {songNumber - 1 !== 0 &&
+                        {number - 1 !== 0 &&
                             <NavLink className={`${style.prev} ${style.navItem}`}
-                                     to={`/songList/${songNumber - 1}`}>&lt; Prev</NavLink>
+                                     to={`/songList/${number - 1}`}>&lt; Prev</NavLink>
                         }
-                        {songNumber + 1 <= Object.keys(SongListData).length &&
+                        {number + 1 <= Object.keys(SongListData).length &&
                             <NavLink className={`${style.next} ${style.navItem}`}
-                                     to={`/songList/${songNumber + 1}`}>Next &gt;</NavLink>
+                                     to={`/songList/${number + 1}`}>Next &gt;</NavLink>
                         }
                     </div>
                 </div>
