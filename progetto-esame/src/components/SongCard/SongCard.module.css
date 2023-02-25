@@ -1,6 +1,7 @@
 .card {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid red;
+    border: 1px solid darkred;
+    background-color: whitesmoke;
 }
 .card:hover {
     border: none;
@@ -9,6 +10,6 @@
 .songNumber {
     margin-top: -0.9em;
     font-size: 100px;
-    color: red;
+    color: darkred;
     opacity: 60%;
 }

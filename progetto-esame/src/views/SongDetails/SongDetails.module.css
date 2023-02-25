@@ -7,3 +7,13 @@
     filter: grayscale(90%);
     object-fit: cover;
 }
+.playText {
+    font-size: 100px;
+    color: darkred;
+    opacity: 60%;
+    line-height: .9em;
+}
+.detailsCard:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid darkred !important;
+}
