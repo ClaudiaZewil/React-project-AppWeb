@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle, CardHeader} from "reactstrap";
+import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle} from "reactstrap";
 import style from "./SongCard.module.css";
 import {NavLink} from "react-router-dom";
-import songDefaultImage from "../../assets/images/RollingStoneLogoSmall.png";
-import songDefaultImageBW from "../../assets/images/RollingStoneLogoSmallBW.png";
-import songLoadingImage from "../../assets/images/loading.png";
 
 function SongCard(props) {
     const {songNumber, songName, songArtist, songImage} = props;
