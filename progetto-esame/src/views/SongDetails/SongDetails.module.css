@@ -1,11 +1,19 @@
 .artistImage {
-    max-height: 100vh;
+    max-height: 120vh;
     position: absolute;
     aspect-ratio: auto;
-    right: 30vw;
-    top: 10vh;
+    right: 40%;
+    top: 10%;
     filter: grayscale(90%);
     object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+    .artistImage {
+        height: auto;
+        width: 100vw;
+        right: 0;
+        top: 0%;
+    }
 }
 .playText {
     font-size: 100px;
