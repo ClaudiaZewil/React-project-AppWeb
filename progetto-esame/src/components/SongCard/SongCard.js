@@ -62,7 +62,7 @@ function SongCard(props) {
                  }
                  <CardBody className="mb-3 text-center">
                      <CardText tag="h3" className={`${style.songNumber}`}>{songNumber}</CardText>
-                     <CardTitle>{songName}</CardTitle>
+                     <CardTitle><h4>{songName}</h4></CardTitle>
                      <CardSubtitle>{songArtist}</CardSubtitle>
                  </CardBody>
              </Card>
