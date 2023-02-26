@@ -43,7 +43,7 @@ function SongDetails() {
     return(
         <div className="container pt-5">
             <div className="row pt-5 d-flex align-items-center">
-                <div className="col">
+                <div className="col-12 col-md-4">
                     <img src={songCurrent["0"]["artistImage"]} loading="lazy" width="100%" alt=""
                          className={`img-fluid ${style2.artistImage}`} />
                     <h3 className={`mb-4 ${style2.playText}`}>Play it</h3>
@@ -51,7 +51,7 @@ function SongDetails() {
                         <source src={songCurrent["0"]["songSample"]} type="audio/mp3" />
                     </audio>
                 </div>
-                <div className="col">
+                <div className="col-12 col-md-4">
                     <SongCard className={style2.detailsCard}
                         songNumber={songCurrent["0"]["position"]}
                         songName={songCurrent["0"]["songTitle"]}
@@ -60,7 +60,7 @@ function SongDetails() {
                     >
                     </SongCard>
                 </div>
-                <div className="col">
+                <div className="col-12 col-md-4">
                     <div>
                         <h2>{songCurrent["0"]["artistTitle"]}</h2>
                         {artistData.length !== 0 ?
