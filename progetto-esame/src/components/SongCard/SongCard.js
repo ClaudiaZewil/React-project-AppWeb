@@ -21,7 +21,7 @@ function SongCard(props) {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}`)
+        fetch(`https://api.deezer.com/search?index=0&limit=1&q=${songArtistData}%${songNameData}`)
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
