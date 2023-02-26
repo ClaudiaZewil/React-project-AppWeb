@@ -28,7 +28,15 @@ function SongDetails() {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}`)
+
+        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}&output=jsonp`, {
+            crossorigin: true,
+            mode: 'no-cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+        })
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
