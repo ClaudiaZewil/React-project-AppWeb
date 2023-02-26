@@ -21,15 +21,15 @@ function SongCard(props) {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(`https://api.deezer.com/search?index=0&limit=1&q=${songArtistData}%${songNameData}`)
+        fetch(` https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${songArtistData}%${songNameData}&index=0&limit=1&output=json`)
             .then(res => res.json())
-            .then(res => {
+            .then(data => {
                 if (isMounted)
-                    setSongData(res);
-                console.log(res);
+                    setSongData(data);
+                console.log(data);
             })
             .catch((error) => {
-                console.log("Error" + error)
+                console.log("Error" + error);
                 setApiError(true);
             });
 
