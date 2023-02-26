@@ -8,13 +8,13 @@ function Header(props) {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     return(
-        <Navbar expand="md" light className={`row p-5 d-flex justify-content-between align-items-center fixed-top ${style.header}`} >
+        <Navbar expand="md" light className={`row p-2 px-3 d-flex justify-content-around align-items-center fixed-top ${style.header}`} >
             <div className="col-3">
                 <RouterLink to="/">
-                    <img src={logoImg} alt="" className={`img-fluid ${style.headerImg}`}/>
+                    <img src={logoImg} alt="" className={`img-fluid py-2 ${style.headerImg}`}/>
                 </RouterLink>
             </div>
-            <div className="col-5 d-none d-md-inline">
+            <div className="col-5 d-none d-md-inline text-center">
                 <h3>500 Greatest Songs of All time</h3>
             </div>
             <div className="col-3">

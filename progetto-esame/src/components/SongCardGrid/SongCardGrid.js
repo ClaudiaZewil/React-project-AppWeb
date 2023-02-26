@@ -6,7 +6,7 @@ function SongCardGrid(props) {
 
     const songCardsCol = songList.map((song) => {
         return (
-            <div key={song.position} className="col">
+            <div key={song.position} className="col pb-3">
                 <SongCard
                     songNumber={song.position}
                     songName={song.songTitle}

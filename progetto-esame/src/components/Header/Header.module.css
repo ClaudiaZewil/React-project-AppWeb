@@ -6,7 +6,6 @@
     max-height: 50px;
 }
 .header {
-    height: 70px;
     background-color: whitesmoke;
     border-bottom: 1px solid darkred;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
