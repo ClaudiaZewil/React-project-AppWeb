@@ -7,7 +7,7 @@ import songDefaultImageBW from "../../assets/images/RollingStoneLogoSmallBW.png"
 import songLoadingImage from "../../assets/images/loading.png";
 
 function SongCard(props) {
-    const {songNumber, songName, songArtist, songDate} = props;
+    const {songNumber, songName, songArtist} = props;
     //chiamata API
     const [songData, setSongData] = useState([]);
     const [apiError, setApiError] = useState(false);
@@ -21,7 +21,7 @@ function SongCard(props) {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(` https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${songArtistData}%${songNameData}&index=0&limit=1&output=json`)
+        fetch(`/search?q=${songArtistData}%${songNameData}&index=0&limit=1&output=json`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted)

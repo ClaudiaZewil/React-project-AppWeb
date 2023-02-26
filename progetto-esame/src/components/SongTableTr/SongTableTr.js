@@ -19,7 +19,7 @@ function SongTableTr(props) {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}`)
+        fetch(`/search?q=${songArtistData}%${songNameData}`)
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
@@ -34,7 +34,7 @@ function SongTableTr(props) {
         return () => {
             isMounted = false;
         }
-    }, []);
+    }, [songNumber]);
     return (
         <tr key={songNumber}>
             <td><h3 className={style.songNumber}>{songNumber}</h3></td>

@@ -29,16 +29,7 @@ function SongDetails() {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
 
-        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}&index=0&limit=1`, {
-            mode: "cors", // no-cors, *cors, same-origin
-            headers: {
-                'Access-Control-Allow-Origin': "http://localhost/3000",
-                'Origin': "http://localhost/3000",
-                'Access-Control-Allow-Methods':  'GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH',
-                'Access-Control-Allow-Headers': '*',
-                'Access-Control-Allow-Credentials': 'false'
-            },
-        })
+        fetch(`/search?q=${songArtistData}%${songNameData}&index=0&limit=1`)
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
