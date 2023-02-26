@@ -36,7 +36,7 @@ function SongCard(props) {
         return () => {
             isMounted = false;
         }
-    }, []);
+    }, [songNumber]);
 
      return (
          <NavLink to={`/songList/${songNumber}`}>

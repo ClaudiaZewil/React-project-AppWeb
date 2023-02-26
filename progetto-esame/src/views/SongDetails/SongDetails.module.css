@@ -1,9 +1,9 @@
 .artistImage {
-    max-height: 100vh;
+    max-height: 120vh;
     position: absolute;
     aspect-ratio: auto;
-    right: 30vw;
-    top: 10vh;
+    right: 40vw;
+    top: 15vh;
     filter: grayscale(90%);
     object-fit: cover;
 }

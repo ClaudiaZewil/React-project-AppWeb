@@ -6,6 +6,7 @@ import songDefaultImage from "../../assets/images/crowd.jpeg";
 import style from "../../components/SongTableTr/SongTableTr.module.css";
 import songLoadingImage from "../../assets/images/loading.png";
 import style2 from "./SongDetails.module.css";
+import songDefaultImageBW from "../../assets/images/RollingStoneLogoSmallBW.png";
 
 function SongDetails() {
     let {number} = useParams();
@@ -59,12 +60,36 @@ function SongDetails() {
         <div className="container pt-5">
             <div className="row pt-5 d-flex align-items-center">
                 <div className="col">
-                    <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt=""
-                         className={`img-fluid ${style2.artistImage}`} />
-                    <h3 className={`mb-4 ${style2.playText}`}>Play it</h3>
-                    <audio controls className={style2.audioPlayer}>
-                        <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
-                    </audio>
+                    {songData.length !== 0 ?
+                        <div>
+                            {
+                                songData.error ?
+                                    <img src={songDefaultImage} loading="lazy" width="100%" alt=""
+                                         className={`img-fluid ${style2.artistImage}`} />
+                                    :
+                                    <div>
+                                        <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt=""
+                                         className={`img-fluid ${style2.artistImage}`} />
+                                        <h3 className={`mb-4 ${style2.playText}`}>Play it</h3>
+                                        <audio controls className={style2.audioPlayer}>
+                                            <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
+                                        </audio>
+                                    </div>
+                            }
+                        </div>
+                        :
+                        <div>
+                            {
+                                apiError === false ?
+                                    <img src={songLoadingImage} loading="lazy" width="100%" alt=""
+                                         className={`img-fluid ${style2.artistImage}`} />
+                                    :
+                                    <img src={songDefaultImage} loading="lazy" width="100%" alt=""
+                                         className={`img-fluid ${style2.artistImage}`} />
+                            }
+                        </div>
+                    }
+
                 </div>
                 <div className="col">
                     <SongCard className={style2.detailsCard}
@@ -77,20 +102,39 @@ function SongDetails() {
                 <div className="col">
                     <div>
                         <h2>{songCurrent["0"]["artistTitle"]}</h2>
-                        <p>
-                            <strong>Type:</strong> {artistData.artists["0"]["type"]}<br/>
-                            <strong>Area:</strong> {artistData.artists["0"]["area"]["name"]}<br/>
-                            <strong>Begin area:</strong> {artistData.artists["0"]["begin-area"]["name"]}<br/>
-                            <strong>Life:</strong> {artistData.artists["0"]["life-span"]["begin"]} -
-                            <span className="d-inline">
+                        {artistData.length !== 0 ?
+                            <div>
                                 {
-                                    artistData.artists["0"]["life-span"]["ended"] === null ?
-                                        <span> alive</span>
+                                    artistData.error ?
+                                        <p>Error: no aviable information</p>
                                         :
-                                        <span> {artistData.artists["0"]["life-span"]["ended"]}</span>
+                                        <p>
+                                            <strong>Type:</strong> {artistData.artists["0"]["type"]}<br/>
+                                            <strong>Area:</strong> {artistData.artists["0"]["area"]["name"]}<br/>
+                                            <strong>Begin area:</strong> {artistData.artists["0"]["begin-area"]["name"]}<br/>
+                                            <strong>Life:</strong> {artistData.artists["0"]["life-span"]["begin"]} -
+                                            <span className="d-inline">
+                                                {
+                                                    artistData.artists["0"]["life-span"]["ended"] === null ?
+                                                        <span> alive</span>
+                                                        :
+                                                        <span> {artistData.artists["0"]["life-span"]["ended"]}</span>
+                                                }
+                                            </span>
+                                        </p>
+
                                 }
-                            </span>
-                        </p>
+                            </div>
+                            :
+                            <div>
+                                {
+                                    apiError === false ?
+                                        <p>Loading information...</p>
+                                        :
+                                        <p>Server: no aviable information</p>
+                                }
+                            </div>
+                        }
                     </div>
                     <div className={style.navigation}>
                         {number - 1 !== 0 &&
