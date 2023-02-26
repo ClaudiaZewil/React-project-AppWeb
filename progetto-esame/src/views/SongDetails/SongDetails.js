@@ -14,31 +14,15 @@ function SongDetails() {
     console.log(songCurrent);
 
     //chiamata API
-    const [songData, setSongData] = useState([]);
     const [artistData, setArtistData] = useState([]);
     const [apiError, setApiError] = useState(false);
     useEffect(() => {
         let isMounted = true;
         let songArtistData = songCurrent["0"]["artistTitle"];
-        let songNameData = songCurrent["0"]["songTitle"];
         for (let i = 0; i < songArtistData.lenght; i++) {
-            if (songArtistData[i] === " ") songArtistData[i] = "%";
+            if (songArtistData[i] === " ") songArtistData[i] = "%20";
         }
-        for (let i = 0; i < songNameData.lenght; i++) {
-            if (songNameData[i] === " ") songNameData[i] = "%";
-        }
-        fetch(`https://api.deezer.com/search?q=${songArtistData}%${songNameData}`)
-            .then(res => res.json())
-            .then(res => {
-                if (isMounted)
-                    setSongData(res);
-                console.log(res);
-            })
-            .catch((error) => {
-                console.log("Error" + error)
-                setApiError(true);
-            });
-        fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${songArtistData}&fmt=json`)
+        fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${songArtistData}`)
             .then(res => res.json())
             .then(res => {
                 if (isMounted)
@@ -59,11 +43,11 @@ function SongDetails() {
         <div className="container pt-5">
             <div className="row pt-5 d-flex align-items-center">
                 <div className="col">
-                    <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt=""
+                    <img src={songCurrent["0"]["artistImage"]} loading="lazy" width="100%" alt=""
                          className={`img-fluid ${style2.artistImage}`} />
                     <h3 className={`mb-4 ${style2.playText}`}>Play it</h3>
                     <audio controls className={style2.audioPlayer}>
-                        <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
+                        <source src={songCurrent["0"]["songSample"]} type="audio/mp3" />
                     </audio>
                 </div>
                 <div className="col">
@@ -71,6 +55,7 @@ function SongDetails() {
                         songNumber={songCurrent["0"]["position"]}
                         songName={songCurrent["0"]["songTitle"]}
                         songArtist={songCurrent["0"]["artistTitle"]}
+                              songImage={songCurrent["0"]["albumImage"]}
                     >
                     </SongCard>
                 </div>
