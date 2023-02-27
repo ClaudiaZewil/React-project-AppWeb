@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.62e8d515.css",
+    "main.js": "/static/js/main.a1d6aa91.js",
+    "static/js/787.10fbe858.chunk.js": "/static/js/787.10fbe858.chunk.js",
+    "static/media/RollingStoneLogoSmall.png": "/static/media/RollingStoneLogoSmall.b2b9a16cea92b9c61714.png",
+    "static/media/RollingStoneLogoSmallBW.png": "/static/media/RollingStoneLogoSmallBW.3e51da8c821c861e980a.png",
+    "static/media/RollingStoneLogoBig.png": "/static/media/RollingStoneLogoBig.900edab85fdf3240e4ec.png",
+    "static/media/crowd.jpeg": "/static/media/crowd.842a205d3fa46ca2fa2b.jpeg",
+    "static/media/loading.png": "/static/media/loading.02433cd6ff9d1f733c10.png",
+    "static/media/unimib.jpg": "/static/media/unimib.89c26fae21dd9d2a943e.jpg",
+    "index.html": "/index.html",
+    "main.62e8d515.css.map": "/static/css/main.62e8d515.css.map",
+    "main.a1d6aa91.js.map": "/static/js/main.a1d6aa91.js.map",
+    "787.10fbe858.chunk.js.map": "/static/js/787.10fbe858.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62e8d515.css",
+    "static/js/main.a1d6aa91.js"
+  ]
+}
