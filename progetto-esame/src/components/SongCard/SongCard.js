@@ -47,7 +47,15 @@ function SongCard(props) {
                              songData.error ?
                                  <CardImg src={songDefaultImageBW}></CardImg>
                                  :
-                                 <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"></CardImg>
+                                 <div>
+                                     {
+                                         songData.data.length !== 0 ?
+                                             <CardImg src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy"  top width="100%"></CardImg>
+                                             :
+                                             <CardImg src={songDefaultImage}></CardImg>
+                                     }
+                                 </div>
+
                          }
                      </div>
                      :

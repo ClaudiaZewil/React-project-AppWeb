@@ -41,11 +41,11 @@ function SongDetails() {
                 setApiError(true);
             });
         fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${songArtistData}&fmt=json`)
-            .then(res => res.json())
-            .then(res => {
+            .then(data => data.json())
+            .then(data => {
                 if (isMounted)
-                    setArtistData(res);
-                console.log(res);
+                    setArtistData(data);
+                console.log(data);
             })
             .catch((error) => {
                 console.log("Error" + error)
@@ -58,7 +58,7 @@ function SongDetails() {
     }, [songNumber]);
 
     return(
-        <div className="container pt-5">
+        <div className="container">
             <div className="row pt-5 d-flex align-items-center">
                 <div className="col-12 col-md-4">
                     {songData.length !== 0 ?
@@ -72,7 +72,7 @@ function SongDetails() {
                                         <img src={songData["data"]["0"]["artist"]["picture_xl"]} loading="lazy" width="100%" alt=""
                                          className={`img-fluid ${style2.artistImage}`} />
                                         <h3 className={`mb-4 ${style2.playText}`}>Play it</h3>
-                                        <audio controls className={style2.audioPlayer}>
+                                        <audio controls className={`mb-5 ${style2.audioPlayer}`}>
                                             <source src={songData["data"]["0"]["preview"]} type="audio/mp3" />
                                         </audio>
                                     </div>
@@ -92,7 +92,7 @@ function SongDetails() {
                     }
 
                 </div>
-                <div className="col-12 col-md-4">
+                <div className="col-12 col-md-4 pb-5">
                     <SongCard className={style2.detailsCard}
                         songNumber={songCurrent["0"]["position"]}
                         songName={songCurrent["0"]["songTitle"]}
@@ -100,7 +100,7 @@ function SongDetails() {
                     >
                     </SongCard>
                 </div>
-                <div className="col-12 col-md-4">
+                <div className={`col-12 col-md-4 p-5 ${style2.description}`}>
                     <div>
                         <h2>{songCurrent["0"]["artistTitle"]}</h2>
                         {artistData.length !== 0 ?
@@ -116,10 +116,10 @@ function SongDetails() {
                                             <strong>Life:</strong> {artistData.artists["0"]["life-span"]["begin"]} -
                                             <span className="d-inline">
                                                 {
-                                                    artistData.artists["0"]["life-span"]["ended"] === null ?
-                                                        <span> alive</span>
+                                                    artistData.artists["0"]["life-span"]["ended"] === true ?
+                                                        <span> {artistData.artists["0"]["life-span"]["end"]}</span>
                                                         :
-                                                        <span> {artistData.artists["0"]["life-span"]["ended"]}</span>
+                                                        <span> alive</span>
                                                 }
                                             </span>
                                         </p>
@@ -138,13 +138,13 @@ function SongDetails() {
                         }
                     </div>
                     <div className={style.navigation}>
-                        {number - 1 !== 0 &&
-                            <NavLink className={`${style.prev} ${style.navItem}`}
-                                     to={`/songList/${number - 1}`}>&lt; Prev</NavLink>
+                        {songNumber - 1 !== 0 &&
+                            <NavLink className={`button btn btn-outline-danger m-2 ${style.prev} ${style.navItem}`}
+                                     to={`/songList/${songNumber - 1}`}>&lt; Prev</NavLink>
                         }
-                        {number + 1 <= Object.keys(SongListData).length &&
-                            <NavLink className={`${style.next} ${style.navItem}`}
-                                     to={`/songList/${number + 1}`}>Next &gt;</NavLink>
+                        {songNumber + 1 <= Object.keys(SongListData).length &&
+                            <NavLink className={`button btn btn-outline-danger m-2 ${style.next} ${style.navItem}`}
+                                     to={`/songList/${songNumber + 1}`}>Next &gt;</NavLink>
                         }
                     </div>
                 </div>

@@ -8,9 +8,13 @@ import style from "./SongList.module.css";
 function SongList() {
     const [displayGrid, setDisplayGrid] = useState("true");
 
+    function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
     return (
         <div className="container">
-            <div className="row justify-content-center pt-5">
+            <div className="row justify-content-center">
                 <div className="col">
                     <div className={style.switch}>
                         <div className={clsx(style.option, {[style.active]: displayGrid})}
@@ -36,6 +40,8 @@ function SongList() {
                     }
                 </div>
             </div>
+            <button type="button" className={`btn btn-danger btn-floating btn-lg ${style.btnToTop}`}
+            onClick={backToTop}>&and;</button>
         </div>
     )
 }

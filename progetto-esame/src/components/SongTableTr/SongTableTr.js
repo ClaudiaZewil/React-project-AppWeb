@@ -47,9 +47,18 @@ function SongTableTr(props) {
                                     <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
                                 </NavLink>
                                 :
-                                <NavLink to={`/songList/${songNumber}`}>
-                                    <img src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
-                                </NavLink>
+                                <div>
+                                    {
+                                        songData.data.length !== 0 ?
+                                            <NavLink to={`/songList/${songNumber}`}>
+                                                <img src={songData["data"]["0"]["album"]["cover_xl"]} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
+                                            </NavLink>
+                                            :
+                                            <NavLink to={`/songList/${songNumber}`}>
+                                                <img src={songDefaultImage} loading="lazy" width="100%" alt="" className={`img-fluid ${style.imgTr}`} />
+                                            </NavLink>
+                                    }
+                                </div>
                         }
                     </div>
                     :

@@ -2,14 +2,46 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
     border: 1px solid darkred;
     background-color: whitesmoke;
+    z-index: -1;
 }
 .card:hover {
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .songNumber {
-    margin-top: -0.9em;
-    font-size: 100px;
+    margin-top: -0.8em;
+    font-size: 20vh;
     color: darkred;
-    opacity: 60%;
+    opacity: 70%;
+    z-index: 5;
+}
+@media screen and (max-width: 450px) {
+    .songNumber {
+        font-size: 40vw;
+    }
+}
+@media screen and (min-width: 576px) {
+    .songNumber {
+        font-size: 20vw;
+    }
+}
+@media screen and (min-width: 675px) {
+    .songNumber {
+        font-size: 15vw;
+    }
+}
+@media screen and (min-width: 768px) {
+    .songNumber {
+        font-size: 10vw;
+    }
+}
+@media screen and (min-width: 1068px) {
+    .songNumber {
+        font-size: 8vw;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .songNumber {
+        font-size: 6vw;
+    }
 }

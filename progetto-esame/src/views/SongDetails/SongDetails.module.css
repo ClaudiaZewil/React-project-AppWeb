@@ -3,9 +3,29 @@
     position: absolute;
     aspect-ratio: auto;
     right: 40%;
-    top: 10%;
+    top: 15%;
     filter: grayscale(90%);
     object-fit: cover;
+    z-index: -2;
+}
+.playText {
+    font-size: 10vw;
+    color: darkred;
+    opacity: 70%;
+    line-height: .9em;
+}
+.detailsCard:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid darkred !important;
+}
+.description {
+    z-index: 2;
+    background-color: white;
+}
+@media screen and (max-width: 450px) {
+    .playText {
+        font-size: 15vw;
+    }
 }
 @media screen and (max-width: 768px) {
     .artistImage {
@@ -15,13 +35,8 @@
         top: 0%;
     }
 }
-.playText {
-    font-size: 100px;
-    color: darkred;
-    opacity: 60%;
-    line-height: .9em;
-}
-.detailsCard:hover {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 10px 0 rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid darkred !important;
+@media screen and (max-width: 1200px) {
+    .artistImage {
+        top: 0%;
+    }
 }
