@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../pokedex2022-applicazioni-web-main/.idea/pokedex2022-applicazioni-web-main.iml" filepath="$PROJECT_DIR$/../pokedex2022-applicazioni-web-main/.idea/pokedex2022-applicazioni-web-main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/progetto-esame.iml" filepath="$PROJECT_DIR$/.idea/progetto-esame.iml" />
     </modules>
   </component>

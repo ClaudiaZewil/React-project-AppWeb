@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle, CardHeader} from "reactstrap";
+import {Card, CardBody, CardImg, CardText, CardTitle, CardSubtitle} from "reactstrap";
 import style from "./SongCard.module.css";
 import {NavLink} from "react-router-dom";
 import songDefaultImage from "../../assets/images/RollingStoneLogoSmall.png";
