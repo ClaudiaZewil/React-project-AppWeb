@@ -28,7 +28,7 @@ function SongDetails() {
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
-
+        //chiamata API
         fetch(`/search?q=${songArtistData}%${songNameData}&index=0&limit=1`)
             .then(res => res.json())
             .then(res => {
