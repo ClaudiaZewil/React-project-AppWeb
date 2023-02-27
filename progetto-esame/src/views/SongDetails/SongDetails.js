@@ -60,7 +60,7 @@ function SongDetails() {
     return(
         <div className="container">
             <div className="row pt-5 d-flex align-items-center">
-                <div className="col-12 col-md-4">
+                <div className={`col-12 col-md-4 ${style2.imgContainer}`}>
                     {songData.length !== 0 ?
                         <div>
                             {
@@ -90,10 +90,9 @@ function SongDetails() {
                             }
                         </div>
                     }
-
                 </div>
                 <div className="col-12 col-md-4 pb-5">
-                    <SongCard className={style2.detailsCard}
+                    <SongCard className={`${style2.detailsCard} fewCards`}
                         songNumber={songCurrent["0"]["position"]}
                         songName={songCurrent["0"]["songTitle"]}
                         songArtist={songCurrent["0"]["artistTitle"]}

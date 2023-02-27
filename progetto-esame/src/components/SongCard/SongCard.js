@@ -15,12 +15,14 @@ function SongCard(props) {
         let isMounted = true;
         let songArtistData = songName;
         let songNameData = songArtist;
+        //modifica nome dal json per la chiamata
         for (let i = 0; i < songArtistData.lenght; i++) {
             if (songArtistData[i] === " ") songArtistData[i] = "%";
         }
         for (let i = 0; i < songNameData.lenght; i++) {
             if (songNameData[i] === " ") songNameData[i] = "%";
         }
+        //api
         fetch(`/search?q=${songArtistData}%${songNameData}&index=0&limit=1&output=json`)
             .then(res => res.json())
             .then(data => {

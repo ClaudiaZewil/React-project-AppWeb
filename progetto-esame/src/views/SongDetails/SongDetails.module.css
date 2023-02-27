@@ -1,3 +1,4 @@
+
 .artistImage {
     max-height: 120vh;
     position: absolute;
@@ -7,9 +8,10 @@
     filter: grayscale(90%);
     object-fit: cover;
     z-index: -2;
+    overflow: clip;
 }
 .playText {
-    font-size: 10vw;
+    font-size: 7vw;
     color: darkred;
     opacity: 70%;
     line-height: .9em;
@@ -35,7 +37,7 @@
         top: 0%;
     }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1450px) {
     .artistImage {
         top: 0%;
     }

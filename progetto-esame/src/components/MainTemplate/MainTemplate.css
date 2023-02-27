@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto+Slab:wght@300&family=Tinos&display=swap');
 
+/*font style*/
 * {
     font-family: 'Tinos', 'Helvetica', serif;
     color: black;
@@ -13,7 +14,7 @@ h4, h5 {
     font-family: 'Roboto Slab', serif;
     font-weight: lighter;
 }
-noUnderline, a {
+.noUnderline, a {
     color: black;
     text-decoration: none !important;
 }
